@@ -13,7 +13,7 @@ const promptSuggestions = [
 const emptyMessages = [];
 
 async function fetchChatMessages(chatId) {
-    const { data } = await axios.get(`http://localhost:3000/api/chat/${chatId}/messages`, {
+    const { data } = await axios.get(`https://backend-mini-project-3q70.onrender.com/api/chat/${chatId}/messages`, {
         withCredentials: true
     });
 
@@ -133,7 +133,7 @@ function Home() {
     useEffect(() => {
         let isCurrent = true;
 
-        axios.get("http://localhost:3000/api/chat/", { withCredentials: true })
+        axios.get("https://backend-mini-project-3q70.onrender.com/api/chat/", { withCredentials: true })
             .then(({ data }) => {
                 if (!isCurrent) return;
 
@@ -170,7 +170,7 @@ function Home() {
         
         )
 
-        const tempSocket = io("http://localhost:3000", {
+        const tempSocket = io("https://backend-mini-project-3q70.onrender.com", {
             withCredentials: true
         });
 
@@ -248,7 +248,7 @@ function Home() {
 
         try {
             if (isNewChat) {
-                const { data } = await axios.post("http://localhost:3000/api/chat/", {
+                const { data } = await axios.post("https://backend-mini-project-3q70.onrender.com/api/chat/", {
                     title: content
                 }, {
                     withCredentials: true

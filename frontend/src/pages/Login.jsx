@@ -14,7 +14,7 @@ const Login = () => {
       const submitHandler = async (data)=>{
         setErrorMessage('')
         try {
-          await axios.post("http://localhost:3000/api/auth/login",{
+          await axios.post("https://backend-mini-project-3q70.onrender.com/api/auth/login",{
               email: data.email,
               password: data.password
           }, {
