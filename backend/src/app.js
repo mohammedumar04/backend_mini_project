@@ -24,7 +24,7 @@ app.use('/api/auth',authRoutes)
 app.use('/api/chat',chatRoutes)
 
 app.get("*name",(req,res)=>{
-  res.sendFile(path.join(__dirname,'../public/index.html'))
+  res.sendFile(path.join(__dirname,'../public/assets/index.html'))
 })
 
 module.exports = app
