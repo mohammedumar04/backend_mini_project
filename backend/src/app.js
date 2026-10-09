@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const path = require('path')
 const frontendPath = path.join(__dirname, '../../frontend/public')
+const allowedOrigins = require('./config/allowed-origins')
 
 /* Routes */
 const authRoutes = require('./routes/auth.routes')
@@ -13,7 +14,7 @@ const app = express()
 
 /* Using Middlewares */
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: allowedOrigins,
   credentials: true
 }))
 app.use(express.json())

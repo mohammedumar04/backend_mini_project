@@ -5,12 +5,13 @@ const jwt = require('jsonwebtoken')
 const aiService = require('../service/ai.service')
 const messageModel = require('../models/message.model')
 const {createMemory,queryMemory} = require('../service/vector.service');
+const allowedOrigins = require('../config/allowed-origins')
 // const { Promise } = require("mongoose");
 
 function initSocketServer(httpServer){
     const io = new Server(httpServer,{
         cors: {
-            origin : "http://localhost:5173",
+            origin : allowedOrigins,
             allowedHeaders: ["Content-Type","Authorization"],
             credentials: true
         }

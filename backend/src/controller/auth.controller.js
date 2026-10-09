@@ -1,7 +1,13 @@
 const userModel = require('../models/user.model')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const cookie = require('cookie-parser')
+
+const isProduction = process.env.NODE_ENV === 'production' || Boolean(process.env.RENDER_EXTERNAL_URL)
+const authCookieOptions = {
+    httpOnly: true,
+    secure: isProduction,
+    sameSite: isProduction ? 'none' : 'lax'
+}
 
 
 async function registerUser(req,res){
@@ -29,7 +35,7 @@ async function registerUser(req,res){
 
     const token = jwt.sign({id:user._id},process.env.JWT_SECRET)
 
-    res.cookie("token",token)
+    res.cookie("token",token,authCookieOptions)
 
     res.status(201).json({
         message: "User registered successfully",
@@ -60,7 +66,7 @@ async function loginUser(req,res){
 
     const token = jwt.sign({id:user._id},process.env.JWT_SECRET)
 
-    res.cookie("token",token)
+    res.cookie("token",token,authCookieOptions)
 
     res.status(200).json(({
         message: "User login successfully"
