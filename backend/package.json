@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@google/genai": "^2.24.0",
+    "@pinecone-database/pinecone": "^9.0.0",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "cookie": "^2.0.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.4",
+    "express": "^5.2.1",
+    "init": "^0.1.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.10.2",
+    "socket.io": "^4.8.4"
+  }
+}
