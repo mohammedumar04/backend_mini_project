@@ -13,7 +13,7 @@ const Register = () => {
     const submitHandler = async (data)=>{
       setErrorMessage('')
       try {
-        await axios.post("https://backend-mini-project-3q70.onrender.com/api/auth/register",{
+        await axios.post("/api/auth/register",{
             fullName: {
                 firstName: data.fullName.firstName,
                 lastName: data.fullName.lastName
